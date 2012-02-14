@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="net.mitchtech.ioio.countdowntimer"
+    android:versionCode="11"
+    android:versionName="1.1.0" >
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.DISABLE_KEYGUARD" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:icon="@drawable/alarm_icon"
+        android:label="@string/app_name" >
+        <activity
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:name="net.everythingandroid.timer.TimerActivity" >
+            <intent-filter >
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:name="net.everythingandroid.timer.PrefsActivity" />
+        <activity
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleInstance"
+            android:name="net.everythingandroid.timer.TimerAlarmActivity"
+            android:screenOrientation="user"
+            android:theme="@android:style/Theme.Dialog" />
+
+        <receiver android:name="net.everythingandroid.timer.TimerAlarmReceiver" />
+        <receiver android:name="net.everythingandroid.timer.ClearAllReceiver" />
+
+    </application>
+
+</manifest>
